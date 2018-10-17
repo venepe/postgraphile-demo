@@ -1,0 +1,32 @@
+{
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "defaults"
+          ]
+        },
+        "useBuiltIns": "entry"
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ],
+  "env": {
+    "production": {
+      "only": [
+        "src",
+        "server"
+      ],
+      "plugins": [
+        "transform-react-remove-prop-types",
+        "transform-react-inline-elements",
+        "transform-react-constant-elements"
+      ]
+    }
+  }
+}

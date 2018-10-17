@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  babelpack-web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      - DATABASE_URL
+      - PORT
+    command: bash -c "./wait-for-it.sh postgres:5432 -- yarn migrate up && yarn prod"
+    ports:
+      - "3000:3000"
+      # - "443:443"
+    volumes:
+      - /etc/letsencrypt/live/babelpack.com:/etc/letsencrypt/live/babelpack.com
+    networks:
+      - public
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: "venepe"
+      POSTGRES_PASSWORD: "5WRk22eYUUs"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    networks:
+      - public
+
+networks:
+  public:
+
+volumes:
+  db-data:
