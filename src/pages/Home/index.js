@@ -1,5 +1,5 @@
 import React from 'react'
-import { BPSearchBar, TrendingBabels, TrendingTags } from 'components';
+import { VPSearchBar, TrendingBabels, TrendingTags } from 'components';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -13,11 +13,7 @@ const styles = {
 export const HomePage = ({ history, classes }) => {
   return (
   <section>
-    <BPSearchBar onRequestSearch={value => history.push(`/search?search=${value}`)} />
-    <div className={classes.tagContainer}>
-      <TrendingTags />
-    </div>
-    <TrendingBabels />
+    <VPSearchBar onRequestSearch={value => history.push(`/search?search=${value}`)} />
   </section>);
 }
 

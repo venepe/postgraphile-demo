@@ -1,5 +1,11 @@
-## ~Babelpack~
+## Readme
 
- Make magic happen.
+### Getting Started
 
- Done is better than perfect.
+```
+export DATABASE_URL=postgresql://postgres:supersecretpswd@localhost:5432/postgres
+docker-compose up
+yarn
+yarn migrate up
+yarn dev
+```

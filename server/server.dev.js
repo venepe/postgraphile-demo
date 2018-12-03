@@ -6,14 +6,6 @@ import invariant from 'invariant';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackDevConfig from '../webpack/webpack.dev.babel';
-import {
-  RegisterProductMutationPlugin,
-  RegisterProductAndCreatePackItemMutationPlugin,
-  RegisterBabelTagMutationPlugin
-} from './plugins';
-import {
-  logSearchText,
-} from './logger';
 const { Pool } = require('pg');
 const { postgraphile } = require('postgraphile');
 
@@ -21,10 +13,10 @@ const PORT = 3000;
 const DIST_DIR = path.resolve(__dirname, '..', 'public');
 
 const pool = new Pool({
-  user: 'venepe',
+  user: 'postgres',
   host: 'localhost',
-  database: 'venepe',
-  password: '5WRk22eYUUs',
+  database: 'postgres',
+  password: 'supersecretpswd',
   port: 5432,
 });
 
@@ -34,22 +26,14 @@ app.use(bodyParser.json());
 
 app.use('/graphql', (req, res, next) => {
   if (req.body) {
-    const { operationName, variables } = req.body;
-    if (operationName === 'searchBabels') {
-      logSearchText({ pool, text: variables.search });
-    }
   }
   next();
 });
 
 //GraphQL Api
-app.use(postgraphile(pool, 'babelpack', {
+app.use(postgraphile(pool, 'carco', {
     graphiql: true,
-    appendPlugins: [
-      RegisterProductMutationPlugin,
-      RegisterProductAndCreatePackItemMutationPlugin,
-      RegisterBabelTagMutationPlugin,
-    ],
+    appendPlugins: [],
   }));
 
 const compiler = webpack(webpackDevConfig);

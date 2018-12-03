@@ -3,13 +3,6 @@ export { default as Link } from './Link'
 export { default as Mutation } from './Mutation'
 export { default as Query } from './Query'
 export { default as Spinner } from './Spinner'
-export { default as PackItemCard } from './PackItemCard';
-export { default as PackItemsHorizontalList } from './PackItemsHorizontalList'
-export { default as CreatePackButton } from './CreatePackButton';
-export { default as PackDetail } from './PackDetail';
-export { default as BPSearchBar } from './BPSearchBar'
-export { default as BabelCard } from './BabelCard'
-export { default as PacklessBabels } from './PacklessBabels'
-export { default as TrendingBabels } from './TrendingBabels'
-export { default as TrendingTags } from './TrendingTags'
+export { default as VPSearchBar } from './VPSearchBar'
+export { default as VehicleCard } from './VehicleCard'
 export { default as NoResult } from './NoResult';

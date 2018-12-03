@@ -19,7 +19,7 @@ const App = ({ route, location }) => (
       <Toolbar>
         <Link to='/' style={{ textDecoration: 'none' }}>
           <Typography variant="title" color="textSecondary">
-          Babelpack
+          Carco
           </Typography>
         </Link>
       </Toolbar>

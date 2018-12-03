@@ -2,8 +2,6 @@ const fs = require('fs-extra');
 const glob = require('glob');
 const path = require('path');
 
-const LETS_ENCRYPT_CERT_DIR = '/etc/letsencrypt/live/babelpack.com';
-const CERT_DIR = path.resolve(__dirname, 'etc/letsencrypt/live/babelpack.com');
 
 glob('./@(Docker*|docker*)', {}, function(er, files) {
   console.log(files);
@@ -19,12 +17,4 @@ glob('./@(Docker*|docker*)', {}, function(er, files) {
       });
     });
   });
-});
-
-fs.ensureSymlink(LETS_ENCRYPT_CERT_DIR, CERT_DIR, function(err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Let\'s Encrypt symlink created');
-  }
 });

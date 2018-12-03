@@ -1,15 +1,10 @@
 import Home from 'pages/Home';
 import {
-  BabelCreate,
-  BabelDetail,
-  SearchBabels,
-  TaggedBabels,
-  BabelUpdate,
-} from 'pages/Babel';
-import {
-  PackCreate,
-  PackUpdate,
-} from 'pages/Pack';
+  SearchVehicles,
+  VehicleCreate,
+  VehicleDetail,
+  VehicleUpdate,
+} from 'pages/Vehicle';
 import NotFound from 'pages/NotFound';
 import App from './app';
 
@@ -25,31 +20,19 @@ export default [
       },
       {
         path: '/search',
-        component: SearchBabels,
+        component: SearchVehicles,
       },
       {
-        path: '/tags/',
-        component: TaggedBabels,
+        path: '/vehicles/new',
+        component: VehicleCreate,
       },
       {
-        path: '/babels/new',
-        component: BabelCreate,
+        path: '/vehicles/:vehicleId/edit',
+        component: VehicleUpdate,
       },
       {
-        path: '/babels/:babelId/packs/:packId/edit',
-        component: PackUpdate,
-      },
-      {
-        path: '/babels/:babelId/packs/new',
-        component: PackCreate,
-      },
-      {
-        path: '/babels/:babelId/edit',
-        component: BabelUpdate,
-      },
-      {
-        path: '/babels/:babelId',
-        component: BabelDetail,
+        path: '/vehicles/:vehicleId',
+        component: VehicleDetail,
       },
       {
         path: '*',
