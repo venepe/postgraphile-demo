@@ -1,5 +1,11 @@
 import Home from 'pages/Home';
 import {
+  DealershipCreate,
+  DealershipDetail,
+  DealershipUpdate,
+  DealershipList,
+} from 'pages/Dealership';
+import {
   SearchVehicles,
   VehicleCreate,
   VehicleDetail,
@@ -21,6 +27,18 @@ export default [
       {
         path: '/search',
         component: SearchVehicles,
+      },
+      {
+        path: '/dealerships/new',
+        component: DealershipCreate,
+      },
+      {
+        path: '/dealerships/:dealershipId/edit',
+        component: DealershipUpdate,
+      },
+      {
+        path: '/dealerships',
+        component: DealershipList,
       },
       {
         path: '/vehicles/new',

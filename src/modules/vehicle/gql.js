@@ -1,8 +1,6 @@
 import gql from 'graphql-tag'
 import { VehicleCard } from 'components'
 
-
-
 export const VEHICLE_DETAIL = gql`
   query VehicleDetail($id: Int!) {
     vehicleById(id: $id) {

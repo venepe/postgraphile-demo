@@ -24,6 +24,56 @@ mutation($createDealershipInput:CreateDealershipInput!) {
 }
 ```
 
+#### Update Dealership
+```
+mutation($updateDealershipInput:UpdateDealershipInput!) {
+  updateDealership(input:$updateDealershipInput) {
+    dealership {
+      nodeId
+      id
+      name
+      createdAt
+    }
+  }
+}
+
+{
+  "updateDealershipInput": {
+    "nodeId": "WyJkZWFsZXJzaGlwcyIsMV0",
+    "dealershipPatch": {
+      "name": "Fields Dealership"
+    }
+  }
+}
+```
+
+#### Get Dealership
+```
+query {
+  dealership(nodeId: "WyJkZWFsZXJzaGlwcyIsMV0=") {
+    nodeId
+    id
+    name
+    createdAt
+  }
+}
+```
+
+#### Delete Dealership
+```
+mutation($deleteDealershipInput:DeleteDealershipInput!) {
+  deleteDealership(input:$deleteDealershipInput) {
+    deletedDealershipId
+  }
+}
+
+{
+  "deleteDealershipInput": {
+      "nodeId": "WyJkZWFsZXJzaGlwcyIsMV0="
+  }
+}
+```
+
 #### Create Vehicle
 ```
 mutation($createVehicleInput:CreateVehicleInput!) {
@@ -140,6 +190,25 @@ query {
       nodeId
       id
       model
+    }
+  }
+}
+```
+
+#### Search Vehicles
+```
+query {
+  searchVehicles(search: "Ford") {
+    edges {
+      node {
+        id
+        nodeId
+        dealerId
+        manufacturer
+        model
+        imageUri
+        description
+      }
     }
   }
 }
