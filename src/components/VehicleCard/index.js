@@ -18,15 +18,15 @@ const styles = {
   },
 };
 
-const VehicleCard = ({ vehicle: { id, manufacturer, model, image_uri, description,  }, classes, link }) => (
+const VehicleCard = ({ vehicle: { id, manufacturer, model, imageUri, description,  }, classes, link }) => (
   <Card className={classes.card}>
     <a href={link} style={{ textDecoration: 'none' }}>
       {
         (() => {
-          if (image_uri && image_uri.length > 0) {
+          if (imageUri && imageUri.length > 0) {
             return (<CardMedia
               className={classes.media}
-              image={image_uri}
+              image={imageUri}
               title={manufacturer}
             />);
           }
@@ -36,15 +36,9 @@ const VehicleCard = ({ vehicle: { id, manufacturer, model, image_uri, descriptio
         <Typography gutterBottom variant="headline" component="h4">
           {manufacturer} {model}
         </Typography>
-        {(() => {
-          if (displayDescription === true) {
-            return (
-              <Typography gutterBottom component="p">
-                {description}
-              </Typography>
-            );
-          }
-        })()}
+        <Typography gutterBottom component="p">
+          {description}
+        </Typography>
       </CardContent>
     </a>
     <Divider />
@@ -57,7 +51,7 @@ VehicleCard.fragments = {
       id
       manufacturer
       model
-      image_uri
+      imageUri
       description
     }
   `,
